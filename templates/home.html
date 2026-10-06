@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <p>{{ site.description }}</p>
+
+  <p>No, the stylesheets aren't missing. I perfer this site unstyled.</p>
+
+  <h2>Notes</h2>
+  <ul>
+{% for p in posts %}
+    <li>
+      <time datetime="{{ p.date.isoformat() }}">{{ p.date.strftime('%Y-%m-%d') }}</time>
+      <a href="{{ p.url }}">{{ p.title }}</a>
+    </li>
+{% endfor %}
+  </ul>
+</main>
+{% endblock %}
